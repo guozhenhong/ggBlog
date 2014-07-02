@@ -7,22 +7,22 @@ var mime = require("mime");
 
 var handlerStaticFile = function(req, res, filePath){
     if(!filePath){
-        var fileName = url.parse(req.url).pathname;
-        var extType = path.extname(fileName);
-
-        if(extType == ('.jpg' || '.gif' || '.png')){
-            filePath = path.join(__dirname, config.staticPicDir, fileName);
-        } else{
-            filePath = path.join(__dirname, config.staticFileDir, url.parse(req.url).pathname);
-        }
-        // console.log("In staticFileServer, file path is " + filePath);
+        filePath = url.parse(req.url).pathname;
     }
+    var extType = path.extname(filePath);
+
+    if(extType == ('.jpg' || '.gif' || '.png')){
+        filePath = path.join(__dirname, config.staticPicDir, filePath);
+    } else{
+        filePath = path.join(__dirname, config.staticFileDir, filePath);
+    }
+    // console.log("In staticFileServer, file path is " + filePath);
     fs.exists(filePath, function(exists) {  
         if(!exists) {  
             invalidHandler.handle404(req, res);  
             return;  
         }  
-        console.log("In staticFileServer!! SUCCESS" + filePath + "type is "+ mime.lookup(path.basename(filePath)));
+        // console.log("In staticFileServer!! SUCCESS " + filePath + " type is "+ mime.lookup(path.basename(filePath)));
         fs.readFile(filePath, "binary", function(err, file) {  
             if(err) {  
                 invalidHandler.handle404(req, res, err);

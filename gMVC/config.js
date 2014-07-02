@@ -10,7 +10,28 @@ function registerAll(route)
 	    action: 'home'
 	});
 
+	route.map({
+		method : 'get',
 
+		url : '/blogs',
+
+		controller : 'blog',
+
+		action : 'list'
+		
+	});
+
+
+	route.map({
+		method : 'get',
+
+		url : '/blogs/(\\d+)',
+
+		controller : 'blog',
+
+		action : 'show'
+		
+	});
 }
 
 exports.staticFileDir = "bower_components";

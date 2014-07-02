@@ -34,22 +34,25 @@ function getActionInfo(url, method){
 	method = method ? method.toLowerCase() : 'get';
 
 	var pathname = urlParser.parse(url).pathname;
-	console.log("Request for " + pathname + " received.");
+	// console.log("Request for " + pathname + " received.");
 
 	var m_routers = routes[method];
 
 	for(var i in m_routers){
-		// var patt = new RegExp(m_routers[i].url);
-		// r.args = patt.exec(pathname);
+		var str = m_routers[i].url + '$';
+		// console.log("THe str is " + str + "  the router url is " + m_routers[i].url);
+		var patt = new RegExp(str);
+		r.args = patt.exec(pathname);
 
 		// r.args = m_routers[i].url.exec(pathname);
-
-		// if(r.args.index == 0){
-		if(pathname == m_routers[i].url){
+		// if(pathname == m_routers[i].url){
+		if(r.args == null){
+			continue;
+		}else if(r.args.index == 0){
 			r.controller = m_routers[i].ctl;
 			r.action = m_routers[i].act;
-			// r.args.shift();
-			console.log("In routes, getActionInfo(), the r.args is : " + r.args);
+			r.args.shift();
+			// console.log("In routes, getActionInfo(), the r.args is : " + r.args);
 			break;
 		}
 	}

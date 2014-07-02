@@ -11,18 +11,23 @@ function handle(request, response){
 
 	if(actioninfo.action){
 		var controller = require('./controllers/' + actioninfo.controller);
-		console.log("In requestHandler.handle(), request for ./controllers/" + actioninfo.controller + ", the action is " + actioninfo.action);
+		// console.log("In requestHandler.handle(), request for ./controllers/" + actioninfo.controller + ", the action is " + actioninfo.action);
 
 		if(controller[actioninfo.action]){
 			var ct = new controllerContext(request, response);
 
-			controller[actioninfo.action].apply(ct, actioninfo.args);
+			var res = 0;
+			res = controller[actioninfo.action].apply(ct, actioninfo.args);
+
+			if(res == -1){
+				invalidHandler.handle500(request, response);				
+			}
 
 		}else{
 			invalidHandler.handle500(request, response);
 		}
 	}else{
-		console.log("In request for static file.");
+		// console.log("In request for static file.");
 		staticFileServer.handlerStaticFile(request, response);
 	}
 }
