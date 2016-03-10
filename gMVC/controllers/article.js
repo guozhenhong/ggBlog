@@ -1,6 +1,6 @@
 function list(){
-	this.render("blogs.jade", {title: 'blogs',
-		blogs : [{
+	this.render("article_list.jade", {title: 'article list',
+		articles : [{
 			title : '2014-6-1',
 			_id : 1,
 		}, {
@@ -21,7 +21,7 @@ function show(args){
 	}
 	var a = typeof ID;
 	// console.log("!!!!!!!!!!!the number is " + args + " the type ID is " + a);
-	this.render("blogContent.jade", 
+	this.render("article_show.jade", 
 		{title:'blog', ID:args}
 		);
 

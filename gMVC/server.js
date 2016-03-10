@@ -22,7 +22,7 @@ function start(port){
 	});
 
 	server.listen(port);
-	console.log("Server start listen!\n");
+	console.log("Server start listen on Port: " + port + "\n");
 }
 
 exports.start = start;

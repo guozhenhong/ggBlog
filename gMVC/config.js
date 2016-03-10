@@ -5,7 +5,7 @@ function registerAll(route)
 
 	    url: "/",
 
-	    controller: 'index',
+	    controller: 'home',
 
 	    action: 'home'
 	});
@@ -13,9 +13,9 @@ function registerAll(route)
 	route.map({
 		method : 'get',
 
-		url : '/blogs',
+		url : '/article',
 
-		controller : 'blog',
+		controller : 'article',
 
 		action : 'list'
 		
@@ -25,9 +25,9 @@ function registerAll(route)
 	route.map({
 		method : 'get',
 
-		url : '/blogs/(\\d+)',
+		url : '/article/(\\d+)',
 
-		controller : 'blog',
+		controller : 'article',
 
 		action : 'show'
 		

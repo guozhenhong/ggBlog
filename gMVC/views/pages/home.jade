@@ -6,8 +6,8 @@ block content
 			each item in blogs
 				.col-md-2
 					.thumbnail
-						a(href="/blogs/#{item._id}")
+						a(href="/article/#{item._id}")
 							img(src="#{item.poster}", alt="#{item.title}")
 						.caption
-							h3 #{item.title}
-							p: a.btn.btn-primary(href="/blogs/#{item._id}", role="button") 查看日志
+							h3: a.btn.btn-primary(href="/article/#{item._id}", role="button") #{item.title}
+							p: #{item.date}
