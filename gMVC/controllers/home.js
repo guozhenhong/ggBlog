@@ -1,6 +1,7 @@
 exports.home = function(){
 	// console.log("In home fuction");
-	this.render("home.jade", {title : '首页',
+	this.render("home.jade", { 
+		title : '首页',
 		blogs : [{
 			title : "first",
 			_id : 1,

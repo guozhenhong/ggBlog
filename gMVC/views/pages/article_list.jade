@@ -2,9 +2,11 @@ extends ../layout
 
 block content
 	.container
-		each item in blogs
+		each item in articles
 			.row
 				.caption
-					p.text-center: a.btn.btn-link.btn-lg(href="/article/#{item._id}", role="button") 
+					p.text-left: a.btn.btn-link.btn-lg(href="/article/#{item._id}", role="button") 
 						#{item.title}
-					
+
+		include ../includes/pagination
+				

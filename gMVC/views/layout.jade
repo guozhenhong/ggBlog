@@ -1,11 +1,20 @@
 doctype
+- var name = 'zhenhong.ME | 寒夜里为我闪烁的星'
 html
 	head
 		meta(charset='utf-8')
-		title #{title}
+		title #{name}
 		include ./includes/head
 	body
-		include ./includes/header
-		.page-header
-			h2.text-center 寒夜里为我闪烁的星
-		block content
+		.container
+			.row
+				.col-md-2
+				.col-md-10
+					.page-header
+						h2.text-left #{title}			
+			.row
+				.col-md-2
+					include ./includes/header
+				.col-md-10
+					block content
+		include ./includes/foot

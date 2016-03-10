@@ -1,0 +1,10 @@
+#pagination
+	.row.text-left
+		ul.pagination.pagination-sm
+			li
+				a(href="#") &laquo;
+			- for (var x = 1; x < 8; x++)	
+				li
+					a(href="#") #{x}
+			li
+				a(href="#") &raquo;	

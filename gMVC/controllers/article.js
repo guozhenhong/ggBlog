@@ -1,5 +1,5 @@
 function list(){
-	this.render("article_list.jade", {title: 'article list',
+	this.render("article_list.jade", {title: '文章',
 		articles : [{
 			title : '2014-6-1',
 			_id : 1,

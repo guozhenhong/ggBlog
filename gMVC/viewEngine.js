@@ -11,6 +11,7 @@ function render(req, res, viewName, context){
 		var output = jade.renderFile(filename, context);
 		// console.log("In viewEngin.render, render output is " + output);
 	}catch(err){
+		console.log(err);
 		invalidHandler.handle500(req, res, err);
 		return;
 	}

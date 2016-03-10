@@ -14,17 +14,20 @@ function handle(request, response){
 		// console.log("In requestHandler.handle(), request for ./controllers/" + actioninfo.controller + ", the action is " + actioninfo.action);
 
 		if(controller[actioninfo.action]){
+			// console.log("IN")
 			var ct = new controllerContext(request, response);
 
 			var res = 0;
 			res = controller[actioninfo.action].apply(ct, actioninfo.args);
 
 			if(res == -1){
-				invalidHandler.handle500(request, response);				
+				invalidHandler.handle404(request, response);
+				// console.log("IN4")
 			}
 
 		}else{
 			invalidHandler.handle500(request, response);
+			// console.log("IN5")
 		}
 	}else{
 		// console.log("In request for static file.");
